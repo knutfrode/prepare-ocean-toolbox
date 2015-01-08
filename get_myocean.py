@@ -13,7 +13,6 @@
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-|
 
 import os
 import sys
@@ -108,7 +107,7 @@ if __name__ == '__main__':
         sys.exit(1)
 
     args, extraArgs = parser.parse_known_args()
-    if args.user == '' or args.pwd == '':
+    if args.user == '' or args.pwd == '' or args.pwd == 'my-passwd':
         sys.exit('Please provide Myocean username/passord' +
                  ' on commandline, or store in myocean_datasets.py')
 
@@ -194,10 +193,10 @@ if __name__ == '__main__':
             if desc != 'time' and desc != 'depth':
                 print '\t%s:\n\t\t%s (min)\n\t\t%s (max)' % (
                     desc, axis.attrib['lower'], axis.attrib['upper'])
-            if desc == 'lat' or desc == 'latitude':
+            if desc == 'lat' or desc == 'latitude' or desc == 'nav_lat_v':
                 latmin = axis.attrib['lower']
                 latmax = axis.attrib['upper']
-            if desc == 'lon' or desc == 'longitude':
+            if desc == 'lon' or desc == 'longitude' or desc == 'nav_lon_v':
                 lonmin = axis.attrib['lower']
                 lonmax = axis.attrib['upper']
         print 'Parameters (CF standard_name):'
