@@ -201,7 +201,7 @@ if __name__ == '__main__':
         except:
             depths = ['Surface', 'Surface']
 
-        if len(depths) == 1: # E.g. for ssh and ice with only one reported depth
+        if len(depths) == 1:  # E.g. for ssh with only one reported depth
             depths.append(depths[0])
 
         # Axes
@@ -243,7 +243,8 @@ if __name__ == '__main__':
         templateCommand = templateCommand + ' -f data.nc'
         print '---------------------------------------------------------'
         print 'Online documentation:'
-        print 'http://www.myocean.eu/web/69-myocean-interactive-catalogue.php?option=com_csw&view=details&product_id=' + fs['productID']
+        print 'http://www.myocean.eu/web/69-myocean-interactive-catalogue.php'\
+              '?option=com_csw&view=details&product_id=' + fs['productID']
         print '---------------------------------------------------------'
         print 'Template command for data download (cut, paste and edit):'
         print templateCommand

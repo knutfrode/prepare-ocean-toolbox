@@ -58,8 +58,9 @@ Examples:
 ./get_myocean.py -region baltic -t 2014-12-21 12:00:00 -T 2014-12-22 12:00:00 -z Surface -Z Surface  -x 22 -X 30.2 -y 58.9 -Y 60.9 -v temp -v uvel -v vvel -v ice_cov -f gulf_finland.nc
 
 **To download one week of reanalysis upper layer currents for the Aegean Sea through MyOcean:**
+(type **./get_myocean.py -region mediterranean -reanalysis** to get name of subdatasets)
 
-./get_myocean.py -region mediterranean -reanalysis -t 2011-11-21 00:00:00 -T 2011-11-28 12:00:00 -z 0 -Z 5  -x 22 -X 27 -y 37 -Y 41 -v vozocrtx -v vomecrty -f aegean.nc
+./get_myocean.py -region mediterranean -reanalysis -d myov04-med-ingv-cur-rean-dm -t 2011-11-21 00:00:00 -T 2011-11-28 12:00:00 -z 0 -Z 5  -x 22 -X 27 -y 37 -Y 41 -v vozocrtx -v vomecrty -f aegean.nc
 
 **To download all data for one day from the usn-hycom model for the Black Sea**
 
