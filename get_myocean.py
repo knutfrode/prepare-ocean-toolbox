@@ -190,13 +190,14 @@ if __name__ == '__main__':
         print 'Axes:'
         for axis in axes:
             desc = axis.attrib['name']
+            axisType = axis.attrib['axisType']
             if desc != 'time' and desc != 'depth':
                 print '\t%s:\n\t\t%s (min)\n\t\t%s (max)' % (
                     desc, axis.attrib['lower'], axis.attrib['upper'])
-            if desc == 'lat' or desc == 'latitude' or desc == 'nav_lat_v':
+            if axisType == 'Lat':
                 latmin = axis.attrib['lower']
                 latmax = axis.attrib['upper']
-            if desc == 'lon' or desc == 'longitude' or desc == 'nav_lon_v':
+            if axisType == 'Lon':
                 lonmin = axis.attrib['lower']
                 lonmax = axis.attrib['upper']
         print 'Parameters (CF standard_name):'
