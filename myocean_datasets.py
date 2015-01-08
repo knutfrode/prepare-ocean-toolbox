@@ -6,6 +6,7 @@ password = 'my-passwd'
 sources = [
 
 {
+##############################
         'name': 'arctic',
         'forecast': {
             'productID': 'DATASET-TOPAZ4-ARC-MYOCEANV2-BE',
@@ -19,6 +20,7 @@ sources = [
             'datasets': ['dataset-ran-arc-myoceanv2-be']}},
 
             {
+##############################
         'name': 'baltic',
         'forecast': {
             'productID': 'BALTICSEA_ANALYSIS_FORECAST_PHYS_003_006',
@@ -46,6 +48,7 @@ sources = [
 #            'datasets': ['']}},
 
             {
+##############################
         'name': 'northwestshelf',
         'forecast': {
             'productID': 'NORTHWESTSHELF_ANALYSIS_FORECAST_PHYS_004_001_b',
@@ -59,7 +62,9 @@ sources = [
             'datasets': ['dataset-nws-roms-geo6-phys-myocean-ts']}},
 
             {
+##############################
         'name': 'southwestshelf',
+##############################
         'forecast': {
             'productID': 'IBI_ANALYSIS_FORECAST_PHYS_005_001_b',
             'serviceID': 'http://purl.org/myocean/ontology/individual/myocean#IBI_ANALYSIS_FORECAST_PHYS_005_001_b-TDS',
@@ -72,31 +77,38 @@ sources = [
             'datasets': ['dataset-ibi-reanalysis-phys-005-002-daily-regulargrid']}},
 
             {
+##############################
         'name': 'mediterranean',
+##############################
         'forecast': {
-            'productID': 'MYOV04-MED-INGV-CUR-AN-FC',
+            'productID': 'MEDSEA_ANALYSIS_FORECAST_PHYS_006_001_a',
             'serviceID': 'http://purl.org/myocean/ontology/service/database#MEDSEA_ANALYSIS_FORECAST_PHYS_006_001_a-TDS',
             'motuClient': 'http://gnoodap.bo.ingv.it/mis-gateway-servlet/Motu',
-            'datasets': ['myov04-med-ingv-cur-an-fc']},
+            'datasets': ['myov04-med-ingv-cur-an-fc',
+                         'myov04-med-ingv-tem-an-fc',
+                         'myov04-med-ingv-sal-an-fc',
+                         'myov04-med-ingv-ssh-an-fc']},
         'reanalysis': {
             'productID': 'MEDSEA_REANALYSIS_PHYS_006_004',
             'serviceID': 'http://purl.org/myocean/ontology/service/database#MEDSEA_REANALYSIS_PHYS_006_004-TDS',
             'motuClient': 'http://gnoodap.bo.ingv.it/mis-gateway-servlet/Motu',
-            'datasets': ['myov04-med-ingv-cur-rean-dm']}},
-
+            'datasets': ['myov04-med-ingv-cur-rean-dm',
+                         'myov04-med-ingv-tem-rean-dm',
+                         'myov04-med-ingv-sal-rean-dm',
+                         'myov04-med-ingv-ssh-rean-dm',
+                         'myov04-med-ingv-cur-rean-mm',
+                         'myov04-med-ingv-tem-rean-mm',
+                         'myov04-med-ingv-sal-rean-mm',
+                         'myov04-med-ingv-ssh-rean-mm']}},
             {
+##############################
         'name': 'global',
+##############################
         'forecast': {
             'productID': 'GLOBAL-ANALYSIS-FORECAST-PHYS-001-002',
             'serviceID': 'http://purl.org/myocean/ontology/service/database#GLOBAL_ANALYSIS_FORECAST_PHYS_001_002-TDS',
             'motuClient': 'http://atoll.mercator-ocean.fr/mfcglo-mercator-gateway-servlet/Motu',
             'datasets': ['global-analysis-forecast-phys-001-002']},
-#        'reanalysis': {
-#            'productID': 'GLOBAL_REANALYSIS_PHYS_001_010',
-#            'serviceID': 'http://purl.org/myocean/ontology/service/database#GLOBAL_REANALYSIS_PHYS_001_010',
-#            'motuClient': 'http://data.ncof.co.uk/mis-gateway-servlet/Motu',
-#            'datasets': ['GLOBAL_REANALYSIS_PHYS_001_010_RAN-UK-ORCA025_GRIDS', 'GLOBAL_REANALYSIS_PHYS_001_010_RAN-UK-ORCA025_GRIDT',
-#                         'GLOBAL_REANALYSIS_PHYS_001_010_RAN-UK-ORCA025_GRIDU', 'GLOBAL_REANALYSIS_PHYS_001_010_RAN-UK-ORCA025_GRIDV']}}
         'reanalysis': {
             'productID': 'GLOBAL_REANALYSIS_PHYS_001_009',
             'serviceID': 'http://purl.org/myocean/ontology/service/database#GLOBAL-REANALYSIS-PHYS-001-009-TDS',
@@ -106,4 +118,5 @@ sources = [
                          'dataset-global-reanalysis-phys-001-009-ran-fr-glorys2v3-monthly-t',
                          'dataset-global-reanalysis-phys-001-009-ran-fr-glorys2v3-monthly-ssh',
                          'dataset-global-reanalysis-phys-001-009-ran-fr-glorys2v3-monthly-ice']}}
-            ]
+
+]

@@ -61,6 +61,10 @@ if __name__ == '__main__':
                         help='For reanalysis data, otherwise using '
                         'analysis/forecast')
 
+    parser.add_argument('-d', dest='dataset', default=None,
+                        help='Needed only if product contains '
+                        'several datasets')
+
     parser.add_argument('-f', dest='f', help='Output filename (netCDF)')
 
     # Arguments passed directly to motu-client
@@ -127,10 +131,21 @@ if __name__ == '__main__':
     region = args.region
     del args.region
 
+    # Check if product contains several datasets
+    if len(fs['datasets']) > 1:
+        if args.dataset is None:
+            print 'Please select one of the following datasets (option -d):'
+            for dataset in fs['datasets']:
+                print '\t' + dataset
+            sys.exit(1)
+        else:
+            args.d = args.dataset  # use provided dataset id
+    else:
+        args.d = fs['datasets'][0]  # dataset id
+
     # Construct motu-arguments for selected dataset
     args.m = fs['motuClient']  # motu server
     args.s = fs['serviceID']  # service id
-    args.d = fs['datasets'][0]  # dataset id
     if (
         region == 'baltic' or region == 'global' or (
             region == 'northwestshelf' and args.reanalysis is False) or (
@@ -185,6 +200,10 @@ if __name__ == '__main__':
             depths = depths.text.split(';')
         except:
             depths = ['Surface', 'Surface']
+
+        if len(depths) == 1: # E.g. for ssh and ice with only one reported depth
+            depths.append(depths[0])
+
         # Axes
         axes = root.find('dataGeospatialCoverage')
         print 'Axes:'
@@ -217,6 +236,8 @@ if __name__ == '__main__':
                            lonmin, lonmax, latmin, latmax)
         if args.reanalysis:
             templateCommand = templateCommand + ' -reanalysis '
+        if args.dataset is not None:
+            templateCommand = templateCommand + ' -d ' + args.dataset
         for variable in variableList:
             templateCommand = templateCommand + ' -v ' + variable
         templateCommand = templateCommand + ' -f data.nc'
@@ -230,6 +251,7 @@ if __name__ == '__main__':
 
     # Delete arguments specific for this script
     del args.reanalysis
+    del args.dataset
     del args.m
     del args.s
     del args.d
