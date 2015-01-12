@@ -8,11 +8,11 @@ Developed by Knut-Frode Dagestad
 
 This toolbox contains three Python scripts:
 
-- get_myocean.py
+- **get_myocean.py**
     - to download ocean model data from MyOcean (Copernicus Marine Service)
-- get_opendap.py
+- **get_opendap.py**
     - to download ocean model data from OPeNDAP servers
-- interpolate_ocean.py
+- **interpolate_ocean.py**
     - to interpolate downloaded NetCDF files to another map projection
 
 The two first scripts use information about relevant datsets (and
@@ -35,7 +35,7 @@ Requirements:
     - NCO, available from http://nco.sourceforge.net
     - python-netcdf4, available from https://github.com/Unidata/netcdf4-python
 - interpolate_ocean.py depends on Fimex, available from 
-        http://nco.sourceforge.ne://wiki.met.no/fimex/start
+        http://wiki.met.no/fimex/start
 
 
 Usage:
@@ -48,7 +48,7 @@ Hints:
 - To get an overview of the variables and dimensions contained in a dataset listed in opendap_datasets.py: Copy the url, paste it into a web browser and add ".html". The resulting listing shows the variables and their attributes, as well as facilitating a listing of the values for any variable. 
 - The -v argument requires the netCDF variable name used in the datafiles (NOT the standard_name). Different datasets use different names for, e.g., the velocity components. For example, the (east,north) velocity components are named: (vozocrtx,vomecrty) for the MyOcean mediterranean datasets; (uvel,vvel) for the MyOcean baltic datasets; (water_u,water_v) for the usn_hycom datasets. See the previous hints. 
 - The uppermost depth available in a particular dataset may not be at the very surface (0 m). Use a small depth range (z and Z arguments) to ensure that the uppermost data are found, e.g., "-z 0 -Z 5" will obtain all available depths in the upper 5 meters.
- 
+- See http://trac.osgeo.org/proj/wiki/FAQ on how to make proj4-strings for interpolation_ocean.py
 
 Examples:
 --------------

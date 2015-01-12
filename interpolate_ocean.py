@@ -38,8 +38,9 @@ if __name__ == '__main__':
     parser.add_argument('-o', dest='outputFilename',
                         help='Output filename', required=True)
     parser.add_argument('-proj4', help='proj4 string describing a spatial '
-                        'reference system onto which '
-                        'the data will be projected', required=True)
+                        'reference system onto which the data will be '
+                        'projected. See http://trac.osgeo.org/proj/wiki/FAQ '
+                        'for reference', required=True)
     parser.add_argument('-r', dest='resolution', default=10000,
                         help='Spatial resolution of destination grid [m]')
     parser.add_argument('-v', dest='rotatevectors', default='latlon',
